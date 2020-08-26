@@ -1,0 +1,60 @@
+body {
+    background: #fafafa;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #555;
+}
+
+.default {
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+.sing {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+}
+
+.bar {
+    position: absolute;
+    opacity:0;
+}
+
+#banner {
+	background: #fff;
+    overflow: hidden;
+    width: $banner-width;
+    height: $banner-height;
+    opacity: 0;
+
+    #bars {
+        position: absolute;
+        bottom: 0;
+        left: 5px;
+    }
+
+    #overlay2 {
+        opacity: 0;
+    }
+
+    #button-exit {
+        background-color: rgba(255, 255, 255, 0);
+        cursor: pointer;
+        height: 100%;
+        width: 100%;
+    }
+
+    #border {
+		display: block;
+		width: $banner-width;
+		height: $banner-height;
+        pointer-events: none;
+		outline: solid 1px #ccc;
+  		outline-offset: -1px;
+		z-index: 999;
+    }
+
+    
+}
