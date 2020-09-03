@@ -10,7 +10,18 @@ body {
 	left: 0;
 }
 
-.bar {
+.sing {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+}
+
+.barTop {
+    position: absolute;
+    // opacity:0;
+}
+.barBottom {
     position: absolute;
     // opacity:0;
 }
@@ -22,10 +33,10 @@ body {
     height: $banner-height;
     opacity: 0;
 
-    #bars {
+    .bars {
         position: absolute;
         bottom: 0;
-        left: 0;
+        left: 5px;
     }
 
     #thd_logo {
@@ -44,22 +55,55 @@ body {
 
     #intro {
         position: absolute;
-        top: 25px;
+        top: 200px;
         left: 103px;
         // width:28px;
+    }
+
+    #lockup {
+        position: absolute;
+        top: 200px;
+        left: 0;
+        // width:28px;
+    }
+
+    #overlay {
+        position: absolute;
+        top: 130px;
+        // left: -30px;
+        // width:220px;
+    }
+
+    #overlay2 {
+        position: absolute;
+        top: 20px;
+        left: -30px;
+        width:220px;
     }
 
     #bars_bg {
         background-color: #9D8377;
         position: absolute;
-        bottom: 0;
+        top: 0;
+        left: 5px;
+        width: 148px;
+        height: $banner-height;
+    }
+
+    #cover {
+        position: absolute;
+        top: 175px;
         left: 0;
         width: $banner-width;
-        height: 82px;
+        height: 250px;
+        background-color: #fff;
+    }
+
+    #overlay2 {
+        opacity: 0;
     }
 
     #button-exit {
-        
         background-color: rgba(255, 255, 255, 0);
         cursor: pointer;
         height: 100%;

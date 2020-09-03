@@ -4,11 +4,20 @@ var app = app || {};
 app.Animation = (function () {
 
 	var banner = document.getElementById('banner');
+	var gallery = document.getElementById('gallery');
+	var overlay2 = document.getElementById('overlay2');
 	var t = TweenMax;
-	var tl = new TimelineMax({paused:true});
+	var tl1 = new TimelineMax();
+	var tl2 = new TimelineMax({paused:true});
+	// var tl3 = new TimelineMax({paused:true});
 
 	var barsNodeList = document.querySelectorAll(".bar");
 	var barsArray = [].slice.call(barsNodeList);
+
+	
+
+	var singNodeList = document.querySelectorAll(".sing");
+	var singArray = [].slice.call(singNodeList);
 	
 
 	// --------------------------------------------------------------------------------------
@@ -24,16 +33,22 @@ app.Animation = (function () {
 	function start() {
 
 		barsArray = shuffle(barsArray);
-		// t.set(".bar", {scaleX:randomNumber(1, 2) * .01, transformOrigin:"50% 50%"});
 
-		var randomDuration = 5 + randomNumber(2, 3),
-			randomOpacity = randomNumber(10, 30) * 0.01;
+		t.set(".bar", {scaleX:randomNumber(2, 3), transformOrigin:"50% 50%"});
+		// t.set(".barBottom", {scaleY:randomNumber(2, 3), transformOrigin:"50% 50%"});
 
-		tl.staggerTo(barsArray, randomDuration, {xPercent:randomNumber(-50, 50), scaleX:randomNumber(3, 5), autoAlpha: randomOpacity, yoyo:true, repeat:-1, ease:Sine.easeInOut}, .5);
+		var randomDuration = 1 + randomNumber(2, 3),
+			randomOpacity = randomNumber(10, 50) * 0.01;
 
-		// tl.staggerTo(barsArray, randomDuration, {xPercent:randomNumber(-10, 10), scaleX:randomNumber(90, 100 * .01), autoAlpha: randomOpacity, yoyo:true, repeat:-1, ease:Sine.easeInOut}, .5);
+		tl1.staggerTo(singArray, .5, {autoAlpha:1}, 2, "+=4")
+		.to(overlay2, .5, {autoAlpha:1}, "-=10.5")
+		.to(gallery, .5, {autoAlpha:0}, "+=2")
+		.to(overlay2, .5, {autoAlpha:0}, "-=.5");
 
-		tl.play(10);
+
+		tl2.staggerTo(barsArray, randomDuration, {xPercent:randomNumber(-10, 1), scaleX:randomNumber(1, 2 * .01), autoAlpha: randomOpacity, yoyo:true, repeat:-1, ease:Sine.easeInOut}, 0.75);
+		tl2.play(10);
+
 
 
 		function shuffle(array) {
@@ -47,8 +62,7 @@ app.Animation = (function () {
 		}
 
 		function randomNumber(min, max) {  
-			var random = Math.floor(Math.random() * (max - min + 1)) + min;
-			return random;
+			return Math.floor(Math.random() * (max - min + 1)) + min;
 		}
 
 	}
